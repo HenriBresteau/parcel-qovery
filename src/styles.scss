@@ -1,6 +1,10 @@
-@import 'scss/reset';
-@import 'scss/base';
-@import 'scss/nav';
-@import 'scss/footer';
+@import "scss/reset";
+@import "scss/base";
+@import "scss/nav";
+@import "scss/footer";
+@import "scss/button";
 
-@import '../assets/fonts/webfonts/stylesheet.css';
+@import "scss/hero";
+@import "../assets/fonts/hack/hack";
+@import "../assets/fonts/hk-grotesk/hk-grotesk";
+@import "../assets/fonts/san-francisco/san-francisco";
