@@ -47,4 +47,60 @@
       margin-right: 24px;
     }
   }
+  .q-hero__images {
+    max-width: 558px;
+    position: relative;
+    animation: HeroWrapperSlideIn 1s forwards 0.8s;
+    .q-hero__illu {
+      position: relative;
+      animation: HeroSlideIn 0.9s forwards 0.8s;
+      opacity: 0;
+
+      &__1 {
+        z-index: 10;
+      }
+      &__2 {
+        z-index: 9;
+        margin-top: -15%;
+        animation-delay: 1.1s;
+      }
+      &__3 {
+        z-index: 8;
+        margin-top: -12%;
+        animation-delay: 1.4s;
+      }
+      &__dashs {
+        position: absolute;
+        animation: FadeIn 1s forwards 1.5s;
+        opacity: 0;
+        top: -6%;
+      }
+    }
+  }
+}
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes HeroWrapperSlideIn {
+  0% {
+    transform: translateY(-1%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+@keyframes HeroSlideIn {
+  0% {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
 }
