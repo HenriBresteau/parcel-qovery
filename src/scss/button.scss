@@ -1,0 +1,25 @@
+.q-btn {
+  display: inline-flex;
+  align-items: center;
+  height: 39px;
+  padding: 0 16px;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  img {
+    margin-right: 10px;
+  }
+}
+.q-btn__git {
+  background: #454545;
+  img {
+    width: 19px;
+  }
+}
+.q-btn__discord {
+  background: #6578c0;
+  img {
+    width: 16px;
+  }
+}

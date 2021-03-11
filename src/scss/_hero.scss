@@ -1,0 +1,44 @@
+.q-hero {
+  background: #151b2b;
+  color: white;
+  padding-top: 41px;
+  height: 80vh;
+  &__logo {
+    width: 158px;
+  }
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__text {
+    max-width: 470px;
+    margin-right: 70px;
+    h1 {
+      font-size: 46px;
+      line-height: 51px;
+      font-weight: 800;
+      font-family: hk_grotesk;
+      margin-bottom: 24px;
+    }
+    .q-hero__headline {
+      font-family: hk_grotesk;
+      font-size: 25px;
+      line-height: 35px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .q-hero__summary {
+      font-size: 16px;
+      line-height: 24px;
+      color: #8686b2;
+      margin-bottom: 48px;
+    }
+  }
+  .q-hero__ctas {
+    display: flex;
+    .q-btn:first-child {
+      margin-right: 24px;
+    }
+  }
+}
