@@ -20,6 +20,12 @@
       font-weight: 800;
       font-family: hk_grotesk;
       margin-bottom: 24px;
+      display: flex;
+      align-items: baseline;
+
+      span {
+        margin-left: 20px;
+      }
     }
     .q-hero__headline {
       font-family: hk_grotesk;
