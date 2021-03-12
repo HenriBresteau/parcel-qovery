@@ -91,8 +91,43 @@
     </section>
     <section class="q-usage">
         <div class="container">
-            <h1>Usage</h1>
-            <p>Initialize EKS (AWS Kubernetes) and ECR (AWS container registry) on AWS</p>
+            <div class="q-usage__head">
+                <h1>Usage</h1>
+                <p>Initialize EKS (AWS Kubernetes) and ECR (AWS container registry) on AWS</p>
+            </div>
+            <div class="q-usage__code--wrapper">
+                <span class="q-tag">RUST</span>
+                <pre class="rust" style="font-family:HackRegular; font-size:15px; line-height:19px; color:#454658"><span style="color: #5D64D2;">let</span> engine <span style="color: #B160F0;">=</span> Engine<span style="color: #B160F0;">::</span><span style="color: #FF6240;">new</span><span style="">&#40;</span>
+    context<span style="color: #B160F0;">,</span> <span style="color: #A8A8C1; font-style: italic;">// parameters</span>
+    local_docker<span style="color: #B160F0;">,</span> <span style="color: #A8A8C1; font-style: italic;">// initialize Docker as a Build Platform</span>
+    ecr<span style="color: #B160F0;">,</span> <span style="color: #A8A8C1; font-style: italic;">// initialize Elastic Container Registry</span>
+    aws<span style="color: #B160F0;">,</span> <span style="color: #A8A8C1; font-style: italic;">// initialize AWS account</span>
+    cloudflare<span style="color: #B160F0;">,</span> <span style="color: #A8A8C1; font-style: italic;">// initialize Cloudflare as DNS Nameservers</span>
+<span style="">&#41;</span><span style="color: #B160F0;">;</span>
+&nbsp;
+<span style="color: #5D64D2;">let</span> session <span style="color: #B160F0;">=</span> <span style="color: #5D64D2;">match</span> engine.session<span style="">&#40;</span><span style="">&#41;</span> <span style="">&#123;</span>
+    Ok<span style="">&#40;</span>session<span style="">&#41;</span> <span style="color: #B160F0;">=&gt;</span> session<span style="color: #B160F0;">,</span> <span style="color: #A8A8C1; font-style: italic;">// get the session</span>
+    Err<span style="">&#40;</span>config_error<span style="">&#41;</span> <span style="color: #B160F0;">=&gt;</span> panic<span style="color: #B160F0;">!</span><span style="">&#40;</span><span style="color: #4548B0;">&quot;configuration error {:?}&quot;</span><span style="color: #B160F0;">,</span> config_error<span style="">&#41;</span><span style="color: #B160F0;">,</span>
+<span style="">&#125;</span><span style="color: #B160F0;">;</span>
+&nbsp;
+<span style="color: #5D64D2;">let</span> <span style="color: #5D64D2;">mut</span> tx <span style="color: #B160F0;">=</span> session.transaction<span style="">&#40;</span><span style="">&#41;</span><span style="color: #B160F0;">;</span>
+&nbsp;
+<span style="color: #A8A8C1; font-style: italic;">// create EKS (AWS managed Kubernetes cluster)</span>
+tx.create_kubernetes<span style="">&#40;</span><span style="color: #B160F0;">&amp;</span>eks<span style="">&#41;</span><span style="color: #B160F0;">;</span>
+&nbsp;
+<span style="color: #A8A8C1; font-style: italic;">// create the infrastructure and wait for the result</span>
+<span style="color: #5D64D2;">match</span> tx.commit<span style="">&#40;</span><span style="">&#41;</span> <span style="">&#123;</span> 
+    TransactionResult<span style="color: #B160F0;">::</span><span style="color: #FF6240;">Ok</span> <span style="color: #B160F0;">=&gt;</span> println<span style="color: #B160F0;">!</span><span style="">&#40;</span><span style="color: #4548B0;">&quot;OK&quot;</span><span style="">&#41;</span><span style="color: #B160F0;">,</span>
+    TransactionResult<span style="color: #B160F0;">::</span><span style="color: #FF6240;">Rollback</span><span style="">&#40;</span>commit_err<span style="">&#41;</span> <span style="color: #B160F0;">=&gt;</span> println<span style="color: #B160F0;">!</span><span style="">&#40;</span><span style="color: #4548B0;">&quot;ERROR but rollback OK&quot;</span><span style="">&#41;</span><span style="color: #B160F0;">,</span> 
+    TransactionResult<span style="color: #B160F0;">::</span><span style="color: #FF6240;">UnrecoverableError</span><span style="">&#40;</span>commit_err<span style="color: #B160F0;">,</span> rollback_err<span style="">&#41;</span> <span style="color: #B160F0;">=&gt;</span> println<span style="color: #B160F0;">!</span><span style="">&#40;</span><span style="color: #4548B0;">&quot;FATAL ERROR&quot;</span><span style="">&#41;</span>
+<span style="">&#125;</span><span style="color: #B160F0;">;</span></pre>
+            </div>
+            <div class="q-usage__ctas">
+                <a href="#" class="q-btn q-btn__git"> <img src="/assets/img/hero/github.svg" alt="git icon"> See
+                    more on Github</a>
+                <a href="#" class="q-btn q-btn__discord"> <img src="/assets/img/hero/discord.svg" alt="discord icon">
+                    Join us on Discord</a>
+            </div>
         </div>
     </section>
     <include src="src/partials/footer.html"></include>
