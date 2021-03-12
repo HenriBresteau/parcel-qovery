@@ -1,0 +1,46 @@
+.q-key-points {
+  .container {
+    max-width: 1100px;
+  }
+  ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 64px 24px;
+
+    li {
+      max-width: 408px;
+      &:nth-child(even) {
+        margin-left: auto;
+      }
+      img {
+        height: 160px;
+        width: auto;
+      }
+      h3 {
+        font-size: 24px;
+        line-height: 26px;
+        color: #454658;
+        font-weight: bold;
+        font-family: hk_grotesk;
+        margin-bottom: 24px;
+      }
+      p {
+        font-size: 16px;
+        line-height: 24px;
+        color: #454658;
+        margin-bottom: 24px;
+
+        &:last-child {
+          margin-bottom: 12px;
+        }
+      }
+      a {
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 138%;
+        text-transform: uppercase;
+        color: #5d64d2;
+      }
+    }
+  }
+}
