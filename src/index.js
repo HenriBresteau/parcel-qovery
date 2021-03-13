@@ -1,5 +1,18 @@
 // here you put all the js you want.
-import Navbar from "./js/navbar.js";
+import Keypoints from "./js/keypoints.js";
 
-const navbar = new Navbar()
+const options = {
+  rootMargin: "0px",
+  threshold: 0.3,
+};
+function callback(entries) {
+  entries.filter((item) => {
+    if (item.isIntersecting) {
+      item.target.classList.add("visible");
+    } else {
+    }
+  });
+}
+let observer = new IntersectionObserver(callback, options);
 
+const keypoints = new Keypoints(observer);
