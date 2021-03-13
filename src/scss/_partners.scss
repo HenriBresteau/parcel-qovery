@@ -15,5 +15,24 @@
     align-items: center;
     justify-content: space-between;
     margin: auto;
+
+    li {
+      flex: 1 0;
+      a {
+        display: block;
+        max-width: 237px;
+        margin: auto;
+      }
+    }
+    li:nth-child(2) {
+      a {
+        max-width: 139px;
+      }
+    }
+    li:nth-child(3) {
+      a {
+        max-width: 167px;
+      }
+    }
   }
 }
