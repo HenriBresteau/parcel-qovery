@@ -1,8 +1,8 @@
 .q-hero {
   background: #151b2b;
   color: white;
-  padding-top: 41px;
-  height: 80vh;
+  padding-top: 4px;
+  padding-bottom: 80px;
   &__logo {
     width: 158px;
   }
@@ -104,5 +104,24 @@
   100% {
     transform: translateY(0%);
     opacity: 1;
+  }
+}
+@media screen and (max-width: 750px) {
+  .q-hero__images {
+    display: none;
+  }
+  .q-hero__logo {
+    margin-bottom: 32px;
+  }
+  .q-hero__text {
+    margin-right: 0;
+    h1 {
+      display: block;
+      span {
+        display: block;
+        margin-top: 24px;
+        margin-left: 0;
+      }
+    }
   }
 }
